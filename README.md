@@ -1,2 +1,13 @@
 # Bingo_GUI
-Code for modern Bingo games
+
+Like most of my projects, the genesis for this interactive Bingo app was an observation of a real world situation. I recently went to play Bingo as part of a fundraiser for the local high school. It's been many years since I'd played, and the game is much different from what I remember. The balls are displayed on a screen, the cards are identified with numbers, and the game master can simply input the card's number to see if a "Bingo" call is valid or not. 
+
+I wondered how that was all done and what started off as a seemingly simple problem turned into an opportunity to deepen my knowledge by working with more advanced Python programming concepts such as creating classes/OOP, generators, saving and retrieving objects with pickle, and GUI produced through the TKinter platform - the result is the set of scripts uploaded here. 
+
+In the bingo_cards script, I use classes as a means of creating a desired number of bingo cards each of which is a 5X5 numpy arrays with the appropriate numbers for the named B-I-N-G-O columns. The ID's and numpy arrays are the attributes of these objects. The numbered cards are then stored with pickle so they can be used in later games after being created (and presumably after the corresponding physical cards that players mark have been generated and sold). 
+
+The main script uses Tkinter to produce two windows - one for the game master which has extra controls such as the ability to check winning cards. Most importantly, each new game creates a generator with the numbers 1-75 randomly shuffled. The game master can press a button to advance the generator which is equivalent to drawing a ball. The separate player window which can be shared to a larger screen shows all balls played (separated by letter and in numerical order and dynamically updated with each draw) and highlights the most recent ball selected.
+
+The gamemaster can choose what type of game is being played with a drop-down menu - winning requires getting just a single row (traditional Bingo) or one of the more exotic shapes. Then they can input the card # and the program will show if the card is a winner or not without having to check manually like in the old days. While input error is a possibility that can't be controlled for, the program restricts input as much as possible to only allow cards which have ID #'s within the range of those that have been created. All other game functions are controlled with buttons and menus. The game can be ended at any time which resets all variables and produces a fresh generator. 
+
+There was a LOT of money flying around at this Bingo event. A program similar to the one I created allowed that to happen and is being used throughout the country - probably similar interfaces are used with Keno. The value of a program like this is readily apparent.
